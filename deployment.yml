@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-example
+spec:
+  selector:
+    matchLabels:
+      run: kubernetes-example
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: kubernetes-example
+    spec:
+      containers:
+      - name: kubernetes-example
+        image: elauso/kubernetes-example
+        ports:
+        - containerPort: 3000
